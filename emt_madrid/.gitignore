@@ -1,1 +1,4 @@
 venv
+.idea
+resources/public-transport.json
+resources/airbnb-listings-single.json

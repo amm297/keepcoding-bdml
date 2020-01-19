@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="febbae46-0d85-4395-9467-4faa2853787d" name="Default Changelist" comment="" />
+    <list default="true" id="febbae46-0d85-4395-9467-4faa2853787d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1VkDjYVWE03GO6TDyCxSbda3Kc0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,7 +22,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../emt_madrid" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -26,27 +33,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.emt_madrid">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="emt_madrid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="emt_madrid" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="emt_madrid" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,11 +45,11 @@
         <env name="X-CLIENT-ID" value="8d304af3-3c37-4670-8170-f03c726ce3c5" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../emt_madrid" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../emt_madrid/home.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/home.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +70,7 @@
         <env name="X-CLIENT-ID" value="8d304af3-3c37-4670-8170-f03c726ce3c5" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../emt_madrid" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -97,52 +83,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="emt_madrid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="emt_madrid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="emt_madrid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.home" />
       <item itemvalue="Python.emt_madrid" />
+      <item itemvalue="Python.home" />
     </list>
     <recent_temporary>
       <list>
@@ -190,11 +133,11 @@
       <screen x="49" y="27" width="1871" height="1053" />
     </state>
     <state x="792" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/49.27.1871.1053@49.27.1871.1053" timestamp="1577970565185" />
-    <state x="2605" y="281" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579369834887">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="717" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579429215248">
+      <screen x="49" y="27" width="1871" height="1053" />
     </state>
     <state x="2605" y="281" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579369834887" />
-    <state x="717" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/49.27.1871.1053@49.27.1871.1053" timestamp="1577962439397" />
+    <state x="717" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/49.27.1871.1053@49.27.1871.1053" timestamp="1579429215248" />
     <state x="2347" y="285" width="1295" height="582" key="#xdebugger.evaluate" timestamp="1579342572429">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -209,52 +152,52 @@
     </state>
     <state x="2618" y="276" key="FileChooserDialogImpl/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370025032" />
     <state x="729" y="296" width="501" height="513" key="FileChooserDialogImpl/49.27.1871.1053@49.27.1871.1053" timestamp="1577789911656" />
-    <state width="1848" height="351" key="GridCell.Tab.0.bottom" timestamp="1579370230669">
+    <state width="1848" height="351" key="GridCell.Tab.0.bottom" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.0.bottom/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230669" />
+    <state width="1848" height="351" key="GridCell.Tab.0.bottom/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="278" key="GridCell.Tab.0.bottom/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296038" />
     <state width="1848" height="351" key="GridCell.Tab.0.bottom/49.27.1871.1053@49.27.1871.1053" timestamp="1579305225295" />
-    <state width="1848" height="351" key="GridCell.Tab.0.center" timestamp="1579370230669">
+    <state width="1848" height="351" key="GridCell.Tab.0.center" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.0.center/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230669" />
+    <state width="1848" height="351" key="GridCell.Tab.0.center/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="278" key="GridCell.Tab.0.center/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296038" />
     <state width="1848" height="351" key="GridCell.Tab.0.center/49.27.1871.1053@49.27.1871.1053" timestamp="1579305225294" />
-    <state width="1848" height="351" key="GridCell.Tab.0.left" timestamp="1579370230669">
+    <state width="1848" height="351" key="GridCell.Tab.0.left" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.0.left/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230669" />
+    <state width="1848" height="351" key="GridCell.Tab.0.left/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="278" key="GridCell.Tab.0.left/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296038" />
     <state width="1848" height="351" key="GridCell.Tab.0.left/49.27.1871.1053@49.27.1871.1053" timestamp="1579305225294" />
-    <state width="1848" height="351" key="GridCell.Tab.0.right" timestamp="1579370230669">
+    <state width="1848" height="351" key="GridCell.Tab.0.right" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.0.right/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230669" />
+    <state width="1848" height="351" key="GridCell.Tab.0.right/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="278" key="GridCell.Tab.0.right/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296038" />
     <state width="1848" height="351" key="GridCell.Tab.0.right/49.27.1871.1053@49.27.1871.1053" timestamp="1579305225294" />
-    <state width="1848" height="351" key="GridCell.Tab.1.bottom" timestamp="1579370230617">
+    <state width="1848" height="351" key="GridCell.Tab.1.bottom" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.1.bottom/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230617" />
+    <state width="1848" height="351" key="GridCell.Tab.1.bottom/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="351" key="GridCell.Tab.1.bottom/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296033" />
     <state width="1848" height="351" key="GridCell.Tab.1.bottom/49.27.1871.1053@49.27.1871.1053" timestamp="1579305206524" />
-    <state width="1848" height="351" key="GridCell.Tab.1.center" timestamp="1579370230617">
+    <state width="1848" height="351" key="GridCell.Tab.1.center" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.1.center/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230617" />
+    <state width="1848" height="351" key="GridCell.Tab.1.center/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="351" key="GridCell.Tab.1.center/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296033" />
     <state width="1848" height="351" key="GridCell.Tab.1.center/49.27.1871.1053@49.27.1871.1053" timestamp="1579305206524" />
-    <state width="1848" height="351" key="GridCell.Tab.1.left" timestamp="1579370230617">
+    <state width="1848" height="351" key="GridCell.Tab.1.left" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.1.left/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230617" />
+    <state width="1848" height="351" key="GridCell.Tab.1.left/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="351" key="GridCell.Tab.1.left/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296033" />
     <state width="1848" height="351" key="GridCell.Tab.1.left/49.27.1871.1053@49.27.1871.1053" timestamp="1579305206524" />
-    <state width="1848" height="351" key="GridCell.Tab.1.right" timestamp="1579370230617">
+    <state width="1848" height="351" key="GridCell.Tab.1.right" timestamp="1579387967636">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1848" height="351" key="GridCell.Tab.1.right/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579370230617" />
+    <state width="1848" height="351" key="GridCell.Tab.1.right/1920.0.1920.1080/49.27.1871.1053@1920.0.1920.1080" timestamp="1579387967636" />
     <state width="1848" height="351" key="GridCell.Tab.1.right/1969.27.1871.1053/0.0.1920.1080@1969.27.1871.1053" timestamp="1579029296033" />
     <state width="1848" height="351" key="GridCell.Tab.1.right/49.27.1871.1053@49.27.1871.1053" timestamp="1579305206524" />
     <state x="473" y="187" key="SettingsEditor" timestamp="1577960483638">
@@ -287,23 +230,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../emt_madrid/home.py</url>
+          <url>file://$PROJECT_DIR$/home.py</url>
           <line>32</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../emt_madrid/home.py</url>
+          <url>file://$PROJECT_DIR$/home.py</url>
           <line>31</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../emt_madrid/home.py</url>
+          <url>file://$PROJECT_DIR$/home.py</url>
           <line>20</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../emt_madrid/home.py</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/home.py</url>
+          <line>48</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
