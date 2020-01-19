@@ -23,13 +23,18 @@ Todo el proyecto se alojará en la nube (Google cloud), y contará con:
 Habrá un cloud function ejecutado bajo demanta que inserte los datos del Storage en HIVE, realize un JOIN de las tablas para obtener los alojamientos mejores conectados, es decir con mejor comunicacion y buenos restaurantes a su alrededor.
 
 ** como mejora:
-	- meter actividades (Civitatis y o similar)
-	- informacion meteorologica
-	- pagina web que permita realizar una query especifica
+    - meter actividades (Civitatis y o similar)
+    - informacion meteorologica
+    - pagina web que permita realizar una query especifica
 
 ### Operating Model
 
-Distinguimos 3 partes:
+Para la distrubucion de los recursos que emplearemos la seguiente estructura `SEGMENT/input/YEAR/MONTH/DAY/RESORUCE`:
+- SEGMENT: Nombre del segmento que se ha llamado 'keepcoding-bootcamp':
+- YEAR/MONTH/DAY: Esta etructura se ha escogido para que se mantenga un registro de todos los procesos para los obtencion de datos.
+- RESOURCE: Nombre del recurso (ej: 'el-tenedor.csv', 'public_transport.json', ...)
+
+Aquí distinguiremos 3 partes:
 
 * Tendremos un job alojado en la nube que se ejecute semanalmente ( los Lunes a las 7 de la mañana), la lógica de este será llamar a la cloud function que almacene el Crawler, el cúal recorrera la web de el tenedor para obtener una lista de los restaurantes. Este resultado se almacenará en el storage dentro de un segmento llamado 'keepcoding-bootcamp en una carpeta llamada 'input' bajo el nombre de 'restaurants-YYYY-MM-DD.csv', el nombre contrendrá la fecha a modo de marca temporal para que se use siempre el mas reciente.
 
@@ -40,7 +45,7 @@ Distinguimos 3 partes:
 ### Desarrollo
 
 Crawler de [El tenedor](https://www.eltenedor.es/restaurante+madrid) éste se ejecutara internamente en el cloud de google mediante un cron-job todos los Lunes a las 7:00, para ello se ha creado un 'Cloud Schedule' con la expresion: __0 7 * * 1__
-	
+    
 ```python
 from google.cloud import storage
 from scrapy.crawler import CrawlerProcess
@@ -50,6 +55,7 @@ import json
 import tempfile
 
 TEMPORARY_FILE = tempfile.NamedTemporaryFile(delete=False, mode='w+t')
+URL= "https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}"
 
 def upload_file_to_bucket(bucket_name, blob_file, destination_file_name):
     """Uploads a file to the bucket."""
@@ -71,8 +77,10 @@ class BlogSpider(scrapy.Spider):
             ratings = article.css('div.rating a span.rating-ratingValue ::text').get(default = 0)
             reviews = article.css('div.reviewsCount--small a.js_rating ::text').extract_first(default='0 reviews').split(' ')[0]
             # Print a un fichero
-            if (ratings != 0 or reviews != 0):
-            	TEMPORARY_FILE.writelines(f"{title};{address};{tags};{ratings};{reviews}\n")
+            if (ratings != 0):
+                res = requests.get(URL.format(address, os.getenv("API_KEY")))
+                location = res.json().get('results')[0].get('geometry').get('location')
+                TEMPORARY_FILE.writelines(f"{title};{address};Madrid;{location.get('lat')};{location.get('lng')};{','.join(tags)};{'{:.1f}'.format(float(ratings.replace(',','.')))};{str(reviews)}\n")
 
         # Aqui hacemos crawling (con el follow)
         next_page_url = response.css('div.pagination a[rel="next"] ::attr(href)').extract_first()
@@ -94,6 +102,52 @@ def activate(request):
     TEMPORARY_FILE.close()
     return "Success!"
 ```
+La ejecución de el script que a partir del dataset de airbnb obtiene las paradas de transporte público en un radio de 500 metros lo podemos ver en este [link](https://github.com/amm297/keepcoding-bdml/tree/master/emt_madrid)
+
+Para el datalake que montaremos en Goolge cloud usaremos el archivo `hive.hql`, este te inizializara hive creando y llenando las tablas de datos:
+* restaurants: Esta tabla almacenará los restaurantes 'crawleados' de [El tenedor](https://www.eltenedor.es/restaurante+madrid) con la siguente estructura 'name', 'address', 'city', 'latitude', 'longitude', 'tags', 'rating', 'reviews'
+* public_transport: Esta tabla contiene los datos de las paradas de transporte público cercanas al hospedaje de airbnb, en formato 'apt_id', 'latitude', 'longitude', 'stops' [{'stop_id', 'latitude', 'longitude', 'name', 'meters', 'lines', [{ 'code', 'label', 'name_from', 'name_to', 'type'}] }]
+* airbnb: Almacena el dtaset principal de los aojamientos de Airbnb con el formato 'id', 'listing_url', 'scrape_id', 'last_scraped', 'name', 'summary', 'space', 'description', 'experiences_offered', 'neighborhood_overview', 'notes', 'transit', 'access', 'interaction', 'house_rules', 'thumbnail_url', 'medium_url', 'picture_url', 'xl_picture_url',  'host_id',  'host_url',  'host_name', 'host_since', 'host_location', 'host_response_time', 'host_response_rate', 'host_acceptance_rate', 'host_thumbnail_url', 'host_picture_url',  'host_neighbourhood',  'host_listings_count',  'host_total_listings_count',  'host_verifications', 'street', 'neighbourhood', 'neighbourhood_cleansed', 'neighbourhood_group_cleansed', 'city', 'state', 'zipcode', 'market', 'smart_location', 'country_code', 'country', 'latitude', 'longitude', 'property_type', 'room_type', 'accommodates', 'bathrooms', 'bedrooms', 'beds', 'bed_type', 'amenities', 'square_feet', 'price', 'weekly_price', 'monthly_price', 'security_deposit', 'cleaning_fee', 'guests_included', 'extra_people', 'minimum_nights', 'maximum_nights', 'calendar_updated', 'has_availability', 'availability_30', 'availability_60', 'availability_90', 'availability_365', 'calendar_last_scraped', 'number_of_reviews', 'first_review', 'last_review', 'review_scores_rating', 'review_scores_accuracy', 'review_scores_cleanliness', 'review_scores_checkin', 'review_scores_communication', 'review_scores_location', 'review_scores_value', 'license', 'jurisdiction_names', 'cancellation_policy', 'calculated_host_listings_count', 'reviews_per_month', 'geolocation', 'features'
+
+Para obtener los resultados usaremos la siguiente query:
+
+```SQL
+SELECT a.id,
+       a.name,
+       a.house_rules,
+       a.street,
+       a.latitude,
+       a.longitude,
+       a.property_type,
+       a.room_type,
+       a.price,
+       a.security_deposit,
+       a.number_of_reviews,
+       a.review_scores_rating,
+       a.review_scores_cleanliness,
+       a.review_scores_checkin,
+       a.review_scores_communication,
+       a.review_scores_value,
+       a.cancellation_policy,
+       r.name,
+       r.address,
+       r.tags,
+       r.rating,
+       r.reviews,
+       pt.stops
+FROM airbnb a 
+JOIN public_transport pt ON (pt.apt_id = a.id) 
+JOIN restaurants r on (r.city = a.market) 
+WHERE ( 
+    2 * asin(
+        sqrt(
+            cos(radians(a.latitude)) * cos(radians(r.latitude)) * 
+            pow(
+                sin(radians((a.longitude - r.longitude)/2)), 2) + 
+            pow(sin(radians((a.latitude - r.latitude)/2)), 2))) 
+    * 6371) < 2
+```
+
 ### Diagrama
 
 El diagrama se puede ver aqui [aqui](https://docs.google.com/drawings/d/1ov2LZrDwERI5lJ5_CiS-FDTd-ixvamkJSBWM0X_brjM/edit?usp=sharing)
