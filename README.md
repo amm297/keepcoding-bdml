@@ -6,7 +6,7 @@ Coger datos de diversos sitios, el tenedor y openlabs (emt Madrid), y combinarlo
 
 ### Nombre del producto
 
-Recomendador de Airbnb por Restaurantes (El tenedor) y Transporte (MobilityLabs)
+Recomendador de Airbnb por Restaurantes (El tenedor) a menos de 2 km y Transporte (MobilityLabs) para el hospedaje con un precio inferior a 100 € por noche.
 
 ### Estrategia del DAaaS
 
@@ -20,12 +20,8 @@ Todo el proyecto se alojará en la nube (Google cloud), y contará con:
 * Crawler con scrapy de 'El tenedor' para sacar Restaurantes. Será un cloud function ejecutado semanalmente mediante un job cuyo resultado en formato csv se almacenara en el google cloud storage.
 * LLamadas a API de transporte con un pequeño script en python a partir del dataset de Airbnb, este se ejecutrá manualmente (de manera inicial) y el resultado en formato json se subira al google cloud storage.
 
-Habrá un cloud function ejecutado bajo demanta que inserte los datos del Storage en HIVE, realize un JOIN de las tablas para obtener los alojamientos mejores conectados, es decir con mejor comunicacion y buenos restaurantes a su alrededor.
 
-** como mejora:
-    - meter actividades (Civitatis y o similar)
-    - informacion meteorologica
-    - pagina web que permita realizar una query especifica
+Cada semana se levantará el cluster manualmente, nos conectaremos a él mediante `gcloud compute ssh keepcoding-bdml-m` una vez dentro ejecutaremos ` hive -f 'gs://keepcoding-bootcamp/input/hive.hql'` y por las queries internar creara las bbdd las cargara de datos y escribira en 'output' el resultado, luego lo descargaremos y apagaremos el cluster.
 
 ### Operating Model
 
@@ -147,6 +143,9 @@ WHERE (
             pow(sin(radians((a.latitude - r.latitude)/2)), 2))) 
     * 6371) < 2
 ```
+
+Una vez obtenidos los resultados los descargaremos y se enviara un mail con el resultado.
+
 
 ### Diagrama
 
