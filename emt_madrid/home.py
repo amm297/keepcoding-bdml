@@ -18,8 +18,7 @@ def getApartments(file):
     logging.info('Reading file {0}'.format(file))
     with open(file, 'r') as f:
         json_apartments = json.load(f)
-        aux = json_apartments[0:5]
-        for json_apartment in aux:
+        for json_apartment in json_apartments:
             fields = json_apartment.get('fields')
             apartments.append(Apartment(fields.get('id'), float(fields.get('latitude')), float(fields.get('longitude'))))
         logging.info('File opened and loaded ({0} items) '.format(len(apartments)))

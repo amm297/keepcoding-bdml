@@ -11,7 +11,8 @@ CREATE TABLE restaurants (
 	tags ARRAY<STRING>, 
 	rating DOUBLE, 
 	reviews DOUBLE)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ";";
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ";"
+LOCATION 'gs://keepcoding-bootcamp/input/2020/01/19';
 
 CREATE TABLE public_transport (
 	apt_id STRING,
@@ -27,16 +28,14 @@ CREATE TABLE public_transport (
 	name_from: STRING,
 	name_to: STRING>>,
 	type: STRING>>)
-ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe';
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
+LOCATION 'gs://keepcoding-bootcamp/input';
 
 
 CREATE TABLE airbnb (
 	id STRING, listing_url STRING, scrape_id STRING, last_scraped STRING, name STRING, summary STRING, space STRING, description STRING, experiences_offered STRING, neighborhood_overview STRING, notes STRING, transit STRING, access STRING, interaction STRING, house_rules STRING, thumbnail_url STRING, medium_url STRING, picture_url STRING, xl_picture_url STRING,  host_id STRING, host_url STRING, host_name STRING, host_since STRING, host_location STRING, host_response_time STRING, host_response_rate INT, host_acceptance_rate STRING, host_thumbnail_url STRING, host_picture_url STRING,  host_neighbourhood STRING,  host_listings_count INT, host_total_listings_count INT, host_verifications STRING, street STRING, neighbourhood STRING, neighbourhood_cleansed STRING, neighbourhood_group_cleansed STRING, city STRING, state STRING, zipcode STRING, market STRING, smart_location STRING, country_code STRING, country STRING, latitude FLOAT, longitude FLOAT, property_type STRING, room_type STRING, accommodates INT, bathrooms FLOAT, bedrooms INT, beds INT, bed_type STRING, amenities STRING, square_feet INT, price INT, weekly_price INT, monthly_price INT, security_deposit INT, cleaning_fee INT, guests_included INT, extra_people INT, minimum_nights INT, maximum_nights INT, calendar_updated STRING, has_availability STRING, availability_30 INT, availability_60 INT, availability_90 INT, availability_365 INT, calendar_last_scraped STRING, number_of_reviews INT, first_review STRING, last_review STRING, review_scores_rating INT, review_scores_accuracy INT, review_scores_cleanliness INT, review_scores_checkin INT, review_scores_communication INT, review_scores_location INT, review_scores_value INT, license STRING, jurisdiction_names STRING, cancellation_policy STRING, calculated_host_listings_count INT, reviews_per_month FLOAT, geolocation STRING, features STRING) 
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ";" ;
-
-LOAD DATA INPATH 'gs://keepcoding-bootcamp/input/2020/01/19/el-tenedor.csv' INTO TABLE restaurants;
-LOAD DATA INPATH 'gs://keepcoding-bootcamp/input/public-transport.json' INTO TABLE public_transport;
-LOAD DATA INPATH 'gs://keepcoding-bootcamp/input/airbnb-listings.csv' INTO TABLE airbnb;
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ";" 
+LOCATION 'gs://keepcoding-bootcamp/input';
 
 INSERT OVERWRITE DIRECTORY 'gs://keepcoding-bootcamp/output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ';'
