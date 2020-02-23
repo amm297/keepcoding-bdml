@@ -10,7 +10,7 @@ CREATE TABE airbnb(
 	calendar_last_scraped DATE,
 	summary TEXT,
 	space TEXT,
-	description TEXT,
+	description TEXT,ac
 	experiences_offered VARCHAR(200),
 	notes TEXT,
 	transit TEXT,
@@ -163,3 +163,8 @@ SELECT `airbnb`.`id` AS `id`,
   SUBSTRING(`airbnb`.`features`, 1, 1024) AS `features`
 FROM `airbnb`
 ```
+
+Tendremos ha historia con dos Dashboards, uno que contiene todo lo relacionado con los alojamientos y otro con los restaurantes:
+
+- Alojamientos: Este dashboard se compone de tres vistas un mapa, una grafica con la valoracion por alojamiento y una gráfica que compara los alojamientos con el precio y la política de cancelacion. Conforme seleccionemos el barrio en el mapa se actualizaran las gráficas filtrando por el seleccionado.a
+- Restaurantes: Tiene dos vistas un mapa y una nube de palabras, así como un filtro con el que seleccionar el barrio que queremos ver. Ambas vistas interactuan de modo que cuando se seleccione un restaurante en una de ellas en la otra se resalta el mismo restaurante.
